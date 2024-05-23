@@ -22,7 +22,7 @@ public class BusinessUserServiceImpl implements BusinessUserService {
         List<User>input = businessUserMapper.page(account);
         List<Customer> temp = new ArrayList<>() ;
         for(int i=0;i<input.size();++i){
-            Customer customer = new Customer(input.get(i).getUserId(),input.get(i).getName(),input.get(i).getPhoneNumber(),
+            Customer customer = new Customer(input.get(i).getUserId(),input.get(i).getName(),input.get(i).getPhone(),
                     input.get(i).getPassword(),input.get(i).getAccount(),"￥"+input.get(i).getMoney().toString());
             temp.add(customer);
         }
