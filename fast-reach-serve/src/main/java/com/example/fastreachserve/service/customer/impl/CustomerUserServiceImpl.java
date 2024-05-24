@@ -1,12 +1,8 @@
 package com.example.fastreachserve.service.customer.impl;
 
-
-import com.example.fastreachserve.mapper.business.BusinessEmployeeMapper;
-
 import com.example.fastreachserve.mapper.customer.CustomerUserMapper;
 import com.example.fastreachserve.service.customer.CustomerUserService;
-import dto.business.BussinessEmployeeAddDTO;
-import dto.business.BussinessEmployeeEditDTO;
+
 
 import dto.customer.CustomerUserAddDTO;
 import dto.customer.CustomerUserEditDTO;
@@ -23,15 +19,14 @@ public class CustomerUserServiceImpl implements CustomerUserService {
 
     @Override
     public boolean add(CustomerUserAddDTO customerUserAddDTO) {
-        try{
+        try {
             customerUserMapper.add(customerUserAddDTO);
             return true;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
+            log.error("用户注册失败：", e);
             return false;
         }
     }
-
     @Override
     public boolean edit(CustomerUserEditDTO customerUserEditDTO) {
         try{

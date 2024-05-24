@@ -14,12 +14,11 @@ import result.Result;
  * */
 @Slf4j
 @RestController
-@RequestMapping("/customer/register/")
 public class CustomerUserController {
     @Autowired
     private CustomerUserService customerUserService;
     //添加的功能-1
-    @PostMapping("/add")
+    @PostMapping("/customer/register/add")
     public Result add(@RequestBody CustomerUserAddDTO customerUserAddDTO){
         log.info("开始注册");
         log.info("注册信息：{}",customerUserAddDTO);
@@ -30,9 +29,11 @@ public class CustomerUserController {
         }
     }
 
-    //添加的功能-2
-    @PostMapping("/edit")
+    // 用户信息修改功能
+    @PostMapping("/customer/manage/editinfo")
     public Result edit(@RequestBody CustomerUserEditDTO customerUserEditDTO) {
+        log.info("开始修改用户信息");
+        log.info("修改信息：{}", customerUserEditDTO);
         if (customerUserService.edit(customerUserEditDTO)) {
             return Result.sucess();
         } else {
